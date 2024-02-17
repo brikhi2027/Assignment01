@@ -1,1 +1,1 @@
-# Assignment01 - Ecomerce Website
+# ENSF381 Assignments - Ecomerce Website
