@@ -63,3 +63,51 @@ footer {
     text-align: center;
     color: white;
 }
+
+/*CSS for login page*/
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ddd;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.login label {
+    display: block;
+    margin: 10px;
+}
+
+.login input {
+    background-color: #fff;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.login button {
+    background-color: #4CAF50;
+    border: 0;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+    opacity: 0.5;
+}
+
+.login button:hover {
+    background-color: #45A049;
+    opacity: 1.0;
+}
+
+.sign-up a {
+    color: #007BFF;
+    text-decoration: none;
+    margin: 10px;
+}
+
+.sign-up a:hover {
+    text-decoration: underline;
+}
