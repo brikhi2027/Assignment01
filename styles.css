@@ -1,7 +1,7 @@
 header {
     display: flex;
     justify-content: space-between;
-    /*width: 100%;*/
+    width: auto;
     align-items: center;
     background-color: #333;
     padding: 20px;
@@ -19,14 +19,15 @@ header {
 nav {
     display: flex;
     justify-content: space-around;
-    /*width: 100%;*/
+    width: 100%;
     background-color: #333;
-    padding: 10px 20px;
 }
 
 nav a {
     color: white;
+    padding: 10px 20px;
 }
+
 /*CSS for homepage*/
 .about-us {
     display: flex;
@@ -102,12 +103,12 @@ footer {
     opacity: 1.0;
 }
 
-.sign-up a {
+.sign-up {
     color: #007BFF;
     text-decoration: none;
     margin: 10px;
 }
 
-.sign-up a:hover {
+.sign-up:hover {
     text-decoration: underline;
 }
