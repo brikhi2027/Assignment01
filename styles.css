@@ -112,3 +112,27 @@ footer {
 .sign-up:hover {
     text-decoration: underline;
 }
+
+/* CSS for Products Page */
+
+
+/* CSS for Contact Page */
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #ddd;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+}
+.contact-method {
+    background-color: #ddd;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 10px;
+}
+.contact-method:last-of-type a:hover {
+    color:#007BFF;
+}
