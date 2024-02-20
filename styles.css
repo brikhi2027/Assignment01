@@ -115,6 +115,69 @@ footer {
 
 /* CSS for Products Page */
 
+/* make page responsive here */
+@media screen and (min-width: 769px) {
+    .product-item {
+        box-sizing: border-box;
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .product-item {
+        box-sizing: border-box;
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .product-item {
+        box-sizing: border-box;
+        width: 100%;
+    }
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #ddd;
+    padding: 20px;
+    margin: 20px;
+    box-sizing: border-box;
+}
+.product-item {
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+.product-item img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+.product-item p {
+    color:#007BFF;
+    font-weight: bold;
+}
+.product-item:hover {
+    background-color: #ffffff;
+}
+.product-item a button {
+    background-color: #4CAF50;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+    color: #ffffff;
+    border: none;
+}
+.product-item a button:hover{
+    background-color: #45A049;
+}
+
 
 /* CSS for Contact Page */
 
