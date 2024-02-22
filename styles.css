@@ -128,14 +128,31 @@ footer {
         box-sizing: border-box;
         max-width: 100%;
     }
+
+    .product-item h2{
+        font-size: 12px;
+    }
+    
 }
 
 @media screen and (max-width: 480px) {
     .product-item {
-        box-sizing: border-box;
         max-width: 100%;
-        flex-direction: column;
+        box-sizing: border-box;
+        align-items: center;
     }
+
+    .product-item h2 {
+        font-size: 18px;
+    }
+
+    .product-list tr{
+        display: block;
+    }
+    .product-list td{
+        display: block;
+    }
+    
 }
 
 .product-list table {
@@ -144,6 +161,7 @@ footer {
 
 .product-list {
     display: flex;
+    box-sizing: border-box;
     background-color: #ddd;
     padding: 20px;
     margin: 20px;
