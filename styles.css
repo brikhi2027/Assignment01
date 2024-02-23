@@ -145,10 +145,6 @@ footer {
     .product-item h2 {
         font-size: 18px;
     }
-
-    .product-list tr{
-        display: block;
-    }
     .product-list td{
         display: block;
     }
