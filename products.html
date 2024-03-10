@@ -110,10 +110,14 @@ Description: Product listing page of e-commerce website
                     </td> 
                     <td>
                         <div class = "product-item">
-                        <img src="images/shoe8.png" alt="Men's Daily Waterproof Sneaker" width="100%">
-                        <h2>Men's Daily Waterproof Sneaker</h2>
-                        <p>$85.00</p>
-                        <a><button id = "Men's Daily Waterproof Sneaker" onclick="addToCart(id)">Add to Cart</button></a>
+                            
+                                <img src="images/shoe8.png" alt="Men's Daily Waterproof Sneaker" width="100%">
+                                <h2>Men's Daily Waterproof Sneaker</h2>
+                                <p>$85.00</p>
+                                <a><button id = "Men's Daily Waterproof Sneaker" onclick="addToCart(id)">Add to Cart</button></a>
+                            
+                                
+                            
                         </div>     
                     </td>
                 </tr>
@@ -121,7 +125,9 @@ Description: Product listing page of e-commerce website
                 
                     <td id="cart">
                         <div class="shopping-cart">
-                            <h1>Shopping Cart</h1>
+                            <div class="title">
+                                <h1>Shopping Cart</h1>
+                            </div>
                         </div>
                     </td>
                 
@@ -137,13 +143,40 @@ Description: Product listing page of e-commerce website
 
     <script>
         function addToCart(id){
+            
             alert(` ${id} has been added to Cart`);
-            var cart = document.getElementById("cart");
+            var cart = document.querySelector(".shopping-cart");
+            
+            
             var newDiv = document.createElement("div");
-            newDiv.className = "newDiv";
-            newDiv.textContent = "product"; // change this later
+            var h2Text = document.createElement("h2");
+            h2Text.textContent = id;
+            var button = document.createElement("button");
+            var counter = document.createElement("integer");
+            counter = 1;
+            button.innerHTML = 'Remove';
+            button.onclick = function(){
+                counter -= 1;
+                if (counter == 0){
+                    newDiv.style.display = "none";
+                }
+                else {
+                    newDiv.style.display = block;
+                    newDiv.textContent = h2Text.textContent + " - " + counter;
+                    newDiv.appendChild(button);
+                    cart.appendChild(newDiv);
+                }
+                        
+                }
+                    
+
+            newDiv.className = id;
+            newDiv.textContent = h2Text.textContent + "-" + counter; 
+            newDiv.appendChild(button);
             cart.appendChild(newDiv);
+                
         }
+        
     </script>
 
 </body>
