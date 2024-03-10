@@ -113,6 +113,45 @@ footer {
     text-decoration: underline;
 }
 
+/*CSS for Sign Up Page*/
+.signupForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ddd;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+} 
+
+.signupForm label {
+    display: block;
+    margin: 10px;
+}
+
+.signupForm input{
+    background-color: #fff;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.signupForm button{
+    background-color: #4CAF50;
+    border: 0;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+    opacity: 0.5;
+}
+
+.signupForm button:hover {
+    background-color: #45A049;
+    opacity: 1.0;
+}
+
+
 /* CSS for Products Page */
 
 /* make page responsive here */

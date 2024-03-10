@@ -1,0 +1,160 @@
+<!--
+=================================================================
+Name: signup.html
+Assignment: 2
+Authors: Bhavna Rikhi (UCID: 30171786) & Anastasia Zaharia (UCID: 30184046)
+Submission: February 23, 2024
+Description: Signup page of e-commerce website 
+=================================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- meta tags, title, and links to styles.css placed here-->
+    <title>ShoeZ & Co</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The signup page of an e-commerce website for shoes.">
+    <meta name="keywords" content="shoes, footwear, e-commerce ">
+    <meta name="author" content="Bhavna Rikhi, Anastasia Zaharia">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href ="ecomerce_favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <!-- logo and website name go here-->
+        <div class="companylogo">
+            <img src="images/colorful_logo.jpg" alt="Shoe Company Logo"/>
+        </div>
+
+        <div class="companyname">
+            <h1>ShoeZ & Co</h1>
+        </div>
+    </header>
+
+    <div>
+        <!-- navigation links go here-->
+        <nav>
+            <a href="index.html">Back to Home</a>
+            <br>
+            <a href="products.html">Products</a>
+            <br>
+            <a href="contact.html">Contact</a>
+            <br>
+            <a href="login.html">Login</a>
+            <br>
+        </nav>
+    </div>
+
+    <main>
+        <section class = "signupForm">
+            <h2>Sign-Up</h2>
+            <form action = "#" method = "post">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required placeholder="Create your username">
+                <br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required placeholder="Create your password">
+                <br>
+                <label for="password">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="password" required placeholder="Re-enter your password">
+                <br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
+                <br>
+                <button type="submit" onclick="validateData(event)">Sign Up</button>
+                <script>
+                    function validateData(event){
+                        event.preventDefault();
+                        const usernameInput = document.getElementById('username').value;
+                        const passwordInput = document.getElementById('password').value;
+                        const confirmPasswordInput = document.getElementById('confirmPassword').value;
+                        const emailInput = document.getElementById('email').value;
+                        //console.log(usernameInput);
+                        //console.log(passwordInput);
+                        //console.log(confirmPasswordInput);
+                        //console.log(emailInput);
+
+                        //validate Username
+                        let allowedCharacters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_';
+                        let letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+                        for (let i = 0; i < usernameInput.length; i++){
+                            if (usernameInput.length < 3 || usernameInput.length > 20){
+                                var message = document.getElementById("signUpMessage");
+                                message.textContent = "Error in username.";
+                                //signupMessage();
+                            }
+                            else if (!allowedCharacters.includes(usernameInput[i])){
+                                var message = document.getElementById("signUpMessage");
+                                message.textContent = "Error in username.";
+                                //signupMessage();
+                            }
+                            else if (!letters.includes(usernameInput[0])){
+                                var message = document.getElementById("signUpMessage");
+                                message.textContent = "Error in username.";
+                                //signupMessage();
+                            }
+                        }
+                        
+                        //validate password
+                        let specialCharacters = '!@#$%^&*()-_=+[]{}|;:\'",.<>?/`~';
+                        let uppercaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                        let lowercaseLetters = 'abcdefghijklmnopqrstuvwxyz';
+                        let numbers = '0123456789';
+                        
+                        for (let i = 0; i < passwordInput.length; i++){
+                            if (passwordInput.length < 8){
+                                var message = document.getElementById("signUpMessage");
+                                message.textContent = "Error in password.";
+                                //signupMessage();
+                            }
+                            else if (!specialCharacters.includes(passwordInput[i])){
+                                var message = document.getElementById("signUpMessage");
+                                message.textContent = "Error in password.";
+                                //signupMessage();
+                            }
+                            else if (!uppercaseLetters.includes(passwordInput[i])){
+                                var message = document.getElementById("signUpMessage");
+                                message.textContent = "Error in password.";
+                                //signupMessage();
+                            }
+                            else if (!lowercaseLetters.includes(passwordInput[i])){
+                                var message = document.getElementById("signUpMessage");
+                                message.textContent = "Error in password.";
+                                //signupMessage();
+                            }
+                            else if (!numbers.includes(passwordInput[i])){
+                                var message = document.getElementById("signUpMessage");
+                                message.textContent = "Error in password.";
+                                //signupMessage();
+                            }
+                        }
+
+                    }
+                    function signupMessage(){
+                        //var message = document.getElementById("signUpMessage");
+                        //message.textContent = "Sign Up Successful!";
+                        
+                        var message_container = document.getElementsByClassName("message-box")[0];
+                        message_container.style.backgroundColor = "#f9f9f9";
+                        message_container.style.border = "2px solid black";
+                        message_container.style.padding = "10px";
+                        message_container.style.margin = "20px";
+                    }
+                </script>
+        </section>
+    </main>
+
+    <div class="message-box">
+        <p id="signUpMessage"></p>
+    </div>
+
+
+    <footer>
+        <!--copyright notice goes here-->
+        <p>&copy;2024 ShoeZ & Co. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
