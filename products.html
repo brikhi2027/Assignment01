@@ -51,7 +51,7 @@ Description: Product listing page of e-commerce website
                         <img src="images/shoe1.png" alt="Chunky Casual Cat Sneaker" width="100%">
                         <h2>Chunky Casual Cat Sneaker</h2>
                         <p>$65.00</p>
-                        <a><button>Add to Cart</button></a>
+                        <a><button id = "Chunky Casual Cat Sneaker" onclick="addToCart(id)">Add to Cart</button></a>
                         </div>
                     </td>
                     <td>
@@ -59,7 +59,7 @@ Description: Product listing page of e-commerce website
                         <img src="images/shoe2.png" alt="Space Bunny White Sneaker" width="100%">
                         <h2>Space Bunny White Sneaker</h2>
                         <p>$60.00</p>
-                        <a><button>Add to Cart</button></a>
+                        <a><button id = "Space Bunny White Sneaker" onclick="addToCart(id)">Add to Cart</button></a>
                         </div>
                     </td>
                 </tr>
@@ -69,7 +69,7 @@ Description: Product listing page of e-commerce website
                         <img src="images/shoe3.png" alt="Coco Bunny Purple Sneaker" width="100%">
                         <h2>Coco Bunny Purple Sneaker</h2>
                         <p>$75.00</p>
-                        <a><button>Add to Cart</button></a>
+                        <a><button id = "Coco Bunny Purple Sneaker" onclick="addToCart(id)">Add to Cart</button></a>
                         </div>
                     </td>
                     <td>
@@ -77,7 +77,7 @@ Description: Product listing page of e-commerce website
                         <img src="images/shoe4.png" alt="Brown Rope-Lace Sneaker" width="100%">
                         <h2>Brown Rope-Lace Sneaker</h2>
                         <p>$75.00</p>
-                        <a><button>Add to Cart</button></a>
+                        <a><button id = "Brown Rope-Lace Sneaker" onclick="addToCart(id)">Add to Cart</button></a>
                         </div>
                     </td>
                 </tr>
@@ -87,7 +87,7 @@ Description: Product listing page of e-commerce website
                         <img src="images/shoe5.png" alt="Kids Disney Mickey White Sneaker" width="100%">
                         <h2>Kids Disney Mickey White Sneaker</h2>
                         <p>$45.00</p>
-                        <a><button>Add to Cart</button></a>
+                        <a><button id = "Kids Disney Mickey White Sneaker" onclick="addToCart(id)">Add to Cart</button></a>
                         </div>
                     </td>
                     <td>
@@ -95,7 +95,7 @@ Description: Product listing page of e-commerce website
                         <img src="images/shoe6.png" alt="Kids Disney Wish White Sneaker" width="100%">
                         <h2>Kids Disney Wish White Sneaker</h2>
                         <p>$45.00</p>
-                        <a><button>Add to Cart</button></a>
+                        <a><button id = "Kids Disney Wish White Sneaker" onclick="addToCart(id)">Add to Cart</button></a>
                         </div>
                     </td>
                 </tr>
@@ -105,7 +105,7 @@ Description: Product listing page of e-commerce website
                         <img src="images/shoe7.png" alt="Men's Leather Suade Sneaker" width="100%">
                         <h2>Men's Leather Suade Sneaker</h2>
                         <p>$75.00</p>
-                        <a><button>Add to Cart</button></a>
+                        <a><button id = "Men's Leather Suade Sneaker" onclick="addToCart(id)">Add to Cart</button></a>
                         </div>
                     </td> 
                     <td>
@@ -113,17 +113,38 @@ Description: Product listing page of e-commerce website
                         <img src="images/shoe8.png" alt="Men's Daily Waterproof Sneaker" width="100%">
                         <h2>Men's Daily Waterproof Sneaker</h2>
                         <p>$85.00</p>
-                        <a><button>Add to Cart</button></a>
+                        <a><button id = "Men's Daily Waterproof Sneaker" onclick="addToCart(id)">Add to Cart</button></a>
                         </div>     
                     </td>
                 </tr>
+                
+                
+                    <td id="cart">
+                        <div class="shopping-cart">
+                            <h1>Shopping Cart</h1>
+                        </div>
+                    </td>
+                
             </table>
         </section>
+
+        
     </main>
 
     <footer>
         <p>&copy;2024 ShoeZ & Co. All rights reserved.</p>
     </footer>
+
+    <script>
+        function addToCart(id){
+            alert(` ${id} has been added to Cart`);
+            var cart = document.getElementById("cart");
+            var newDiv = document.createElement("div");
+            newDiv.className = "newDiv";
+            newDiv.textContent = "product"; // change this later
+            cart.appendChild(newDiv);
+        }
+    </script>
 
 </body>
 </html>
