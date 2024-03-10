@@ -195,8 +195,12 @@ footer {
 }
 .product-item a button:hover{
     background-color: #45A049;
+    text-align: center;
 }
-
+.shopping-cart{
+    width: 200%;
+    text-align: center;
+}
 
 /* CSS for Contact Page */
 
