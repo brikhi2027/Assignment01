@@ -80,12 +80,15 @@ Description: Login page of e-commerce website
                                 //console.log('success');
                                 var message = document.getElementById("loginMessage");
                                 message.textContent = "Login successful!";
-
+                                var message_container = document.getElementsByClassName("message-box")[0];
+                                message_container.style.display = 'block';
                             }
                             else{
                                 //console.log('failure');
                                 var message = document.getElementById("loginMessage");
                                 message.textContent = "Invalid username or password. Please try again.";
+                                var message_container = document.getElementsByClassName("message-box")[0];
+                                message_container.style.display = 'block';
                             }
                             
                         }
@@ -96,20 +99,9 @@ Description: Login page of e-commerce website
                 </script>
             </form>
         </section>
-        <!--<script>
-            async function fetchData() {
-                try {
-                    const response = await fetch('https://jsonplaceholder.typicode.com/users');
-                    const data = await response.json();
-                    console.log(data);
-                }
-                catch (error) {
-                    console.error('Error fetching data: ', error);
-                }
-            }
-        </script>-->
     </main>
-    <div>
+    
+    <div class="message-box">
         <p id="loginMessage"></p>
     </div>
 
