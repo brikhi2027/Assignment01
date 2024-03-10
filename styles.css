@@ -201,6 +201,19 @@ footer {
     width: 200%;
     text-align: center;
 }
+.shopping-cart button {
+    background-color: #4CAF50;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+    color: #ffffff;
+    border: none;
+    width: 100px;
+}
+.shopping-cart button:hover{
+    background-color: #45A049;
+    text-align: center;
+}
 
 /* CSS for Contact Page */
 
