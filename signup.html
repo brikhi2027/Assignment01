@@ -46,6 +46,10 @@ Description: Signup page of e-commerce website
         </nav>
     </div>
 
+    <div class="message-box">
+        <p id="signUpMessage"></p>
+    </div>
+
     <main>
         <section class = "signupForm">
             <h2>Sign-Up</h2>
@@ -102,34 +106,35 @@ Description: Signup page of e-commerce website
                         let uppercaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
                         let lowercaseLetters = 'abcdefghijklmnopqrstuvwxyz';
                         let numbers = '0123456789';
+
+                        let len = false;
+                        let special = false;
+                        let upper = false;
+                        let lower = false;
+                        let num = false;
                         
+                        if (passwordInput.length >= 8){
+                                len = true;
+                        }
                         for (let i = 0; i < passwordInput.length; i++){
-                            if (passwordInput.length < 8){
-                                var message = document.getElementById("signUpMessage");
-                                message.textContent = "Error in password.";
-                                //signupMessage();
+                            if (specialCharacters.includes(passwordInput[i])){
+                                special = true;
                             }
-                            else if (!specialCharacters.includes(passwordInput[i])){
-                                var message = document.getElementById("signUpMessage");
-                                message.textContent = "Error in password.";
-                                //signupMessage();
+                            if (uppercaseLetters.includes(passwordInput[i])){
+                                upper = true;
                             }
-                            else if (!uppercaseLetters.includes(passwordInput[i])){
-                                var message = document.getElementById("signUpMessage");
-                                message.textContent = "Error in password.";
-                                //signupMessage();
+                            if (lowercaseLetters.includes(passwordInput[i])){
+                                lower = true;
                             }
-                            else if (!lowercaseLetters.includes(passwordInput[i])){
-                                var message = document.getElementById("signUpMessage");
-                                message.textContent = "Error in password.";
-                                //signupMessage();
-                            }
-                            else if (!numbers.includes(passwordInput[i])){
-                                var message = document.getElementById("signUpMessage");
-                                message.textContent = "Error in password.";
-                                //signupMessage();
+                            if (numbers.includes(passwordInput[i])){
+                                num = true;
                             }
                         }
+                        if (!(len && special && upper && lower && num)){
+                                var message = document.getElementById("signUpMessage");
+                                message.textContent = "Error in password.";
+                                signupMessage();
+                            }
 
                     }
                     function signupMessage(){
@@ -145,11 +150,6 @@ Description: Signup page of e-commerce website
                 </script>
         </section>
     </main>
-
-    <div class="message-box">
-        <p id="signUpMessage"></p>
-    </div>
-
 
     <footer>
         <!--copyright notice goes here-->
