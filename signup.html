@@ -132,7 +132,8 @@ Description: Signup page of e-commerce website
                         }
                         if (!(len && special && upper && lower && num)){
                                 var message = document.getElementById("signUpMessage");
-                                message.textContent = "Error in password.";
+                                previous = message.textContent;
+                                message.textContent = previous + "Error in password.";
                                 signupMessage();
                             }
 
