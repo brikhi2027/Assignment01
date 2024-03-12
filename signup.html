@@ -46,10 +46,6 @@ Description: Signup page of e-commerce website
         </nav>
     </div>
 
-    <div class="message-box">
-        <p id="signUpMessage"></p>
-    </div>
-
     <main>
         <section class = "signupForm">
             <h2>Sign-Up</h2>
@@ -74,31 +70,45 @@ Description: Signup page of e-commerce website
                         const passwordInput = document.getElementById('password').value;
                         const confirmPasswordInput = document.getElementById('confirmPassword').value;
                         const emailInput = document.getElementById('email').value;
-                        //console.log(usernameInput);
-                        //console.log(passwordInput);
-                        //console.log(confirmPasswordInput);
-                        //console.log(emailInput);
+
+                        //error messages
+                        let usernameError = "";
+                        let passwordError = "";
+                        let confirmPasswordError = "";
+                        let emailError = "";
+                        let errors = "";
 
                         //validate Username
                         let allowedCharacters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_';
                         let letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
+                        let allowedChars = true;
+                        let letter = false;
+                        let valid_len = false;
+                        let valid_username = false;
+
+                        if (usernameInput.length >= 3 && usernameInput.length <= 20){
+                            valid_len = true;
+                        }
+                        if (letters.includes(usernameInput[0])){
+                            letter = true;
+                        }
                         for (let i = 0; i < usernameInput.length; i++){
-                            if (usernameInput.length < 3 || usernameInput.length > 20){
-                                var message = document.getElementById("signUpMessage");
-                                message.textContent = "Error in username.";
-                                //signupMessage();
+                            if (!allowedCharacters.includes(usernameInput[i])){
+                                allowedChars = false;
+                                break;
                             }
-                            else if (!allowedCharacters.includes(usernameInput[i])){
-                                var message = document.getElementById("signUpMessage");
-                                message.textContent = "Error in username.";
-                                //signupMessage();
-                            }
-                            else if (!letters.includes(usernameInput[0])){
-                                var message = document.getElementById("signUpMessage");
-                                message.textContent = "Error in username.";
-                                //signupMessage();
-                            }
+                        }
+                        if (!(allowedChars && letter && valid_len)){
+                            valid_username = false;
+                        }
+                        else{
+                            valid_username = true;
+                        }
+                        if (!valid_username){
+                            usernameError = "Error in username.";
+                            errors += usernameError + " ";
+        
                         }
                         
                         //validate password
@@ -106,15 +116,19 @@ Description: Signup page of e-commerce website
                         let uppercaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
                         let lowercaseLetters = 'abcdefghijklmnopqrstuvwxyz';
                         let numbers = '0123456789';
+                        let allowed = '!@#$%^&*()-_=+[]{}|;:\'",.<>?/`~ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
 
                         let len = false;
                         let special = false;
                         let upper = false;
                         let lower = false;
                         let num = false;
+                        let chars = true;
+                        let valid_password = false;
+                        let confirm_password = false;
                         
                         if (passwordInput.length >= 8){
-                                len = true;
+                            len = true;
                         }
                         for (let i = 0; i < passwordInput.length; i++){
                             if (specialCharacters.includes(passwordInput[i])){
@@ -129,24 +143,114 @@ Description: Signup page of e-commerce website
                             if (numbers.includes(passwordInput[i])){
                                 num = true;
                             }
+                            if (!allowed.includes(passwordInput[i])){
+                                chars = false;
+                                break;
+                            }
                         }
-                        if (!(len && special && upper && lower && num)){
-                                var message = document.getElementById("signUpMessage");
-                                previous = message.textContent;
-                                message.textContent = previous + "Error in password.";
+
+                        if (!(len && special && upper && lower && num && chars)){
+                            valid_password = false;
+                        }
+                        else{
+                            valid_password = true;
+                        }
+                        
+                        if (!valid_password){
+                            passwordError = "Error in password.";
+                            errors += passwordError + " ";
+                            
+                        }
+                        else{ //confirm password
+                            if (passwordInput != confirmPasswordInput){
+                                confirm_password = false;
+                            }
+                            else{
+                                confirm_password = true;
+                            }
+                        }
+                        if (!confirm_password){
+                            confirmPasswordError = "Password does not match.";
+                            errors += confirmPasswordError + " ";
+                        }
+
+                        //validate email
+                        let atSign = false;
+                        let oneAtSign = false;
+                        let info_part = false;
+                        let domain_period = false;
+                        let domain_part = false;
+                        let valid_email = false;
+
+                        let allowedDomains = ['com', 'ca', 'org', 'biz', 'tv', 'net', 'info', 'io', 'me'];
+                        if (emailInput.indexOf("@") !== -1){
+                            atSign = true;
+                            var email_parts = emailInput.split("@");
+                            var personal_info = email_parts[0];
+                            var domain_info = email_parts[1];
+                            if (email_parts.length === 2){
+                                oneAtSign = true;
+                            }
+                            if (personal_info.length !== 0 && personal_info.indexOf(" ") === -1){
+                                info_part = true;
+                            }
+                            if (domain_info.length !== 0 && domain_info.indexOf(" ") === -1){
+                                if (domain_info.indexOf(".") !== -1){
+                                    domain_period = true;
+                                }
+                                if (domain_period){
+                                    var domainSplit = domain_info.split(".");
+                                    var domainName = domainSplit[1];
+                                    if (allowedDomains.includes(domainName)){
+                                        domain_part = true;
+                                    }
+                                }
+                            }
+                        }
+                        
+                        if (!(atSign && oneAtSign && info_part && domain_part)){
+                            valid_email = false;
+                        }
+                        else{
+                            valid_email = true;
+                        }
+
+                        if (!valid_email){
+                            emailError = "Invalid email.";
+                            errors += emailError + " ";
+                        }
+
+                        if (errors){
+                            if (document.querySelector('#message-box') == null){
                                 signupMessage();
                             }
-
-                    }
-                    function signupMessage(){
-                        //var message = document.getElementById("signUpMessage");
-                        //message.textContent = "Sign Up Successful!";
+                            let messageContent = document.getElementById('signUpMessage');
+                            messageContent.textContent = errors;
+                            
+                        }
+                        else{
+                            if (document.querySelector('#message-box') == null){
+                                signupMessage();
+                            }
+                            let successMessage = document.getElementById('signUpMessage');
+                            successMessage.textContent = "Successful sign-up!";
+                        }
                         
-                        var message_container = document.getElementsByClassName("message-box")[0];
+                    }
+
+                    function signupMessage(){
+                        var message_container = document.createElement('div');
+                        message_container.id = 'message-box';
                         message_container.style.backgroundColor = "#f9f9f9";
                         message_container.style.border = "2px solid black";
                         message_container.style.padding = "10px";
                         message_container.style.margin = "20px";
+
+                        var message = document.createElement('p');
+                        message.id = 'signUpMessage';
+
+                        message_container.appendChild(message);
+                        document.querySelector('main').appendChild(message_container);
                     }
                 </script>
         </section>
