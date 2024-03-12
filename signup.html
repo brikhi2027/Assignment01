@@ -1,9 +1,9 @@
 <!--
 =================================================================
 Name: signup.html
-Assignment: 2
+Assignment: 3
 Authors: Bhavna Rikhi (UCID: 30171786) & Anastasia Zaharia (UCID: 30184046)
-Submission: February 23, 2024
+Submission: March 11, 2024
 Description: Signup page of e-commerce website 
 =================================================================
 -->
@@ -161,14 +161,15 @@ Description: Signup page of e-commerce website
                             errors += passwordError + " ";
                             
                         }
-                        else{ //confirm password
-                            if (passwordInput != confirmPasswordInput){
-                                confirm_password = false;
-                            }
-                            else{
-                                confirm_password = true;
-                            }
+
+                        // confirm password
+                        if (passwordInput !== confirmPasswordInput){
+                            confirm_password = false;
                         }
+                        else{
+                            confirm_password = true;
+                        }
+                        
                         if (!confirm_password){
                             confirmPasswordError = "Password does not match.";
                             errors += confirmPasswordError + " ";
