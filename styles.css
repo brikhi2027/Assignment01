@@ -223,7 +223,7 @@ footer {
 .product-item:hover {
     background-color: #ffffff;
 }
-.product-item a button {
+.product-item button {
     background-color: #4CAF50;
     padding: 10px;
     border-radius: 5px;
@@ -232,24 +232,7 @@ footer {
     border: none;
     width: 100px;
 }
-.product-item a button:hover{
-    background-color: #45A049;
-    text-align: center;
-}
-.shopping-cart{
-    width: 200%;
-    text-align: center;
-}
-.shopping-cart button {
-    background-color: #4CAF50;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 10px;
-    color: #ffffff;
-    border: none;
-    width: 100px;
-}
-.shopping-cart button:hover{
+.product-item button:hover{
     background-color: #45A049;
     text-align: center;
 }
